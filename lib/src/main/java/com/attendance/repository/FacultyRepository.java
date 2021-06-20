@@ -13,7 +13,7 @@ import com.attendance.entities.UserEntity;
 public interface FacultyRepository extends JpaRepository<Faculty,Integer> {
 
 	@Query("SELECT u FROM UserEntity u WHERE u.roleId = 1")
-	List<UserEntity> findAllFaculties();
+	List<Faculty> findAllFaculties();
 
 	
 	

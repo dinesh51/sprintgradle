@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "UserEntity")
@@ -20,12 +22,22 @@ public class UserEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@NotEmpty(message="User name is required")
 	private String Name;
+	
+	
 	private String mobileNo;
 	private int roleId;
 	private String gender;
+	
+	@NotEmpty(message="Password is required")
 	private String password;
+	@NotEmpty(message="confirmPassword is required")
 	private String confirmPassword;
+	
+	@NotEmpty(message="Email is required")
+	@Pattern(regexp = "^[a-zA-Z0-9+_.-]+[@][a-zA-Z]+[.][a-zA-Z]+", message="Email id is invalid")
 	private String email;
 	
 	
