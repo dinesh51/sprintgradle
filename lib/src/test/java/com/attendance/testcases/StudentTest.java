@@ -15,14 +15,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import com.attendance.demo.AttendanceTestApplication;
+import com.attendance.demo.AttendanceApplication;
 import com.attendance.entities.StudentEntity;
 import com.attendance.exception.DuplicateRecordException;
 import com.attendance.exception.RecordNotFoundException;
 import com.attendance.repository.StudentRepository;
 import com.attendance.serviceImplementation.StudentService;
 
-@SpringBootTest(classes=AttendanceTestApplication.class)
+@SpringBootTest(classes=AttendanceApplication.class)
 public class StudentTest {
 	@Autowired
 	private StudentService studentService;

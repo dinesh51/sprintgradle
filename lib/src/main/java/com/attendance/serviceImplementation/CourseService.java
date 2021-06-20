@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.attendance.entities.Course;
 import com.attendance.repository.CourseRepository;
+import com.attendance.service.CourseServices;
 
 @Service
-public class CourseService {
+public class CourseService implements CourseServices {
 	@Autowired
 	private CourseRepository courseRepo;
 
@@ -37,6 +38,25 @@ public class CourseService {
 		return courseRepo.findById(id).get();
 	}
 
+	@Override
+	public Course updateCourse(Course course, Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String deleteCourse(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Course findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 //	public List<Course> findAll() {
 //		return courseRepo.findAll();
 //	}

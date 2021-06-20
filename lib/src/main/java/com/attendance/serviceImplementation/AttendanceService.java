@@ -15,6 +15,7 @@ import com.attendance.repository.StudentRepository;
 public class AttendanceService {
 
 	
+
 	
 	@Autowired
 	private AttendanceRepository attendancerepo;
@@ -35,6 +36,21 @@ public class AttendanceService {
 			attendance.setStudent(op.get());
 		    return	attendancerepo.save(attendance);
 		}
-	
+		
+		public AttendanceEntity update(AttendanceEntity entity) {
+			// TODO Auto-generated method stub
+			return attendancerepo.save(entity);
+		}
+		
+		public AttendanceEntity delete(AttendanceEntity entity) {
+			// TODO Auto-generated method stub
+			attendancerepo.delete(entity);
+			return entity;
+		}
+		
+		public AttendanceEntity findByPk(int id) {
+			// TODO Auto-generated method stub
+			return attendancerepo.findById(id).get();
+		}
 	
 }

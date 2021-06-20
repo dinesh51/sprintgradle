@@ -22,11 +22,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EntityScan(basePackages="com.attendance.entities")
 @SpringBootApplication
 @EnableSwagger2
-public class AttendanceTestApplication {
+public class AttendanceApplication {
 
 	public static void main(String[] args) {
 		
-		SpringApplication.run(AttendanceTestApplication.class, args);
+		SpringApplication.run(AttendanceApplication.class, args);
 	}
 	
 	 @Bean

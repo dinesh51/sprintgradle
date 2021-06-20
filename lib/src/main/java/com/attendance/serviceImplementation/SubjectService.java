@@ -13,10 +13,11 @@ import com.attendance.entities.Subject;
 import com.attendance.exception.SubjectException;
 import com.attendance.repository.CourseRepository;
 import com.attendance.repository.SubjectRepository;
+import com.attendance.service.SubjectServices;
 
 
 @Service
-public class SubjectService {
+public class SubjectService implements SubjectServices {
 
 
 	@Autowired

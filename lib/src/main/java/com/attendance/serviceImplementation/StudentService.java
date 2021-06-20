@@ -8,11 +8,13 @@ import org.springframework.stereotype.Service;
 
 import com.attendance.entities.StudentEntity;
 import com.attendance.repository.StudentRepository;
+import com.attendance.service.StudentServices;
 
 @Service
-public class StudentService {
+public class StudentService implements StudentServices{
 	@Autowired
 	private StudentRepository stuRepo;
+
 	
 		public StudentEntity add(StudentEntity entity)  {
 			// TODO Auto-generated method stub

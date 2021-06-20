@@ -50,39 +50,6 @@ public class AdminController {
 	        return userService.deleteAdmin(id);
 	    }
 	
-	   
-	   
-	  
-	  @PostMapping("/addFaculty")
-		public Faculty addFaculty(@RequestBody Faculty faculty) {
-			
-			return facultyService.saveFaculty(faculty);
-		}
-	
-	  
-	    @GetMapping("/Faculty")
-	    public List<UserEntity> getFacultyList() {
-	        return facultyService.getFaculty();
-	    }
-
-	
-	    
-	    @GetMapping("/updateFaculty")
-	    public Faculty updateFaculty(@RequestBody Faculty faculty) {
-	    	return facultyService.updateFaculty(faculty);
-	    }
-
-	    @DeleteMapping("/deleteFaculty/{id}")
-	    public String deleteFaculty(@PathVariable int id) {
-	        return facultyService.deleteFaculty(id);
-	    }
-	    
-
-	    @PutMapping("/changePassword/{email}/{oldPasssword}/{newPassword}")
-	    public String changePassword(@PathVariable String email,String oldPassword,String newPassword) {
-	        return userService.ChangePassword(email,oldPassword,newPassword);
-	    }
-	    
 	    @GetMapping("/viewAdminById{id}")
 	    public UserEntity getUser(@PathVariable int id ) {
 	        return userService.getUser(id);

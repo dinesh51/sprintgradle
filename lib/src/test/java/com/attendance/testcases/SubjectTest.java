@@ -16,7 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.attendance.demo.AttendanceTestApplication;
+import com.attendance.demo.AttendanceApplication;
 import com.attendance.entities.Course;
 import com.attendance.entities.Subject;
 import com.attendance.repository.SubjectRepository;
@@ -24,7 +24,7 @@ import com.attendance.serviceImplementation.SubjectService;
 
 
 
-@SpringBootTest(classes=AttendanceTestApplication.class)
+@SpringBootTest(classes=AttendanceApplication.class)
 public class SubjectTest {
 
 	@Autowired

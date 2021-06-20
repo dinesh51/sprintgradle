@@ -3,7 +3,7 @@ package com.attendance.testcases;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -19,7 +19,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.attendance.controllers.Coursecontroller;
 import com.attendance.controllers.ResponseDTO;
-import com.attendance.demo.AttendanceTestApplication;
+import com.attendance.demo.AttendanceApplication;
 import com.attendance.entities.Course;
 import com.attendance.repository.CourseRepository;
 import com.attendance.serviceImplementation.CourseService;
@@ -27,7 +27,7 @@ import com.attendance.serviceImplementation.CourseService;
 
 
 
-@SpringBootTest(classes=AttendanceTestApplication.class) 
+@SpringBootTest(classes=AttendanceApplication.class) 
 public class CourseTest {
 
 	@Autowired
