@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.attendance.entities.UserEntity;
@@ -18,11 +18,11 @@ public class UserEntityService {
 	public UserEntityRepository userRepository;
 	
 	public UserEntity saveAdmin(UserEntity user) {
-		
-		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(10);
-		String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
-		user.setPassword(encodedPassword);
-		user.setConfirmPassword(encodedPassword);
+//		
+//		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(10);
+//		String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
+//		user.setPassword(encodedPassword);
+//		user.setConfirmPassword(encodedPassword);
 		return	userRepository.save(user);
 			
 	}
@@ -81,25 +81,25 @@ public class UserEntityService {
 	}
 	
 	public String ChangePassword(String email,String oldPassword, String newPassword) {
-		UserEntity user= userRepository.findByEmail(email);			
-		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(10);
-		String oldEncodedPassword = bCryptPasswordEncoder.encode(oldPassword);
-		String encodedNewPassword = bCryptPasswordEncoder.encode(newPassword);	
-		
-		String dbEncodedPassword = user.getPassword();
-		
-		if(oldEncodedPassword.equals(dbEncodedPassword)) {
-			
-			user.setPassword(encodedNewPassword);
-			user.setConfirmPassword(encodedNewPassword);
-			 userRepository.save(user);
+//		UserEntity user= userRepository.findByEmail(email);			
+//		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(10);
+//		String oldEncodedPassword = bCryptPasswordEncoder.encode(oldPassword);
+//		String encodedNewPassword = bCryptPasswordEncoder.encode(newPassword);	
+//		
+//		String dbEncodedPassword = user.getPassword();
+//		
+//		if(oldEncodedPassword.equals(dbEncodedPassword)) {
+//			
+//			user.setPassword(encodedNewPassword);
+//			user.setConfirmPassword(encodedNewPassword);
+//			 userRepository.save(user);
 			 return "updated succesfully";		}
 		
-		else {
-			return "no password";
-		}
-		 
-		 }
+//		else {
+//			return "no password";
+//		}
+//		 
+//		 }
 
 
 	public String logout() {

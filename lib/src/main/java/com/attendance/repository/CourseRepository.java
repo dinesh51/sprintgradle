@@ -9,6 +9,6 @@ import com.attendance.entities.Course;
 @Repository
 public interface CourseRepository extends JpaRepository<Course,Integer> {
 
-	
+	Course findByName(String name);
 
 }

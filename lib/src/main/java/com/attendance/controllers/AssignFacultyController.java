@@ -1,6 +1,10 @@
 package com.attendance.controllers;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,58 +19,56 @@ import com.attendance.repository.FacultyRepository;
 import com.attendance.repository.SubjectRepository;
 import com.attendance.serviceImplementation.AssignFacultyService;
 
-
-
-
 @RestController
 public class AssignFacultyController {
 
 	@Autowired
 	private AssignFacultyService assignserv;
 	
-
+//	@Autowired
+//	private AssignFacultyRepository assignrepo;
+//	
+//	
+    @Autowired
+	public SubjectRepository SubjectRepo;
 	
-	  @PostMapping("/addassignfaculty")
-			public AssignFaculty assignfaculty(@RequestBody AssignFaculty assfac) {
-				
-				return assignserv.createassignfaculty(assfac);
-			}
-	  
+	@Autowired
+	public FacultyRepository repof;
 
-	  
-	  		
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-//	   @PutMapping("/{id}/assignfaculty/{subjectid}")
-//	   AssignFaculty addfacultyToSubject(
-//	            @PathVariable Integer id,
-//	            @PathVariable Integer subjectid
-//	    ) {
-//		   AssignFaculty faculty = assignrepo.findById(get)
-//		   Subject subj = SubjectRepo.findById(subjectid).get();
-//		   faculty.enrolledsubject.add(subj);
-//	        return SubjectRepo.save(assignfaculty);
-//	    }
-//	  
-	  /*  @PutMapping("/{subjectId}/students/{studentId}")
-   Subject addStudentToSubject(
-           @PathVariable Long subjectId,
-           @PathVariable Long studentId
-   ) {
-       Subject subject = subjectRepository.findById(subjectId).get();
-       Student student = studentRepository.findById(studentId).get();
-       subject.enrolledStudents.add(student);
-       return subjectRepository.save(subject);
-   }*/
-	  
-	  
+	@PostMapping("/addassignfaculty")
+	public AssignFaculty assignfaculty(@RequestBody AssignFaculty assfaculty) {
+		int k=assfaculty.getSubject().getSubjectid();
+		 int f=assfaculty.getFaculty().getId();
+	
+		 Optional<Subject> op=	SubjectRepo.findById(k);
+		 Optional<Faculty> op1= repof.findById(f);
+		 
+			if(op.isEmpty()&&op1.isEmpty())//throws exception
+			 {
+				
+			}
+			else 
+				assfaculty.setFaculty(op1.get());  
+			assfaculty.setSubject(op.get());
+
+		return assignserv.createassignfaculty(assfaculty);
+	}
+
+	@PutMapping("/updateAssignFaculty")
+	public String update(@RequestBody AssignFaculty entity) {
+		assignserv.update(entity);
+		return "AssignFaculty update";
+	}
+
+	@GetMapping("/deleteAssignFaculty")
+	public String delete(@RequestBody AssignFaculty entity) {
+		assignserv.delete(entity);
+		return "AssignFaculty deleted";
+	}
+
+	@GetMapping("/search")
+	public List<AssignFaculty> Findall() {
+		return assignserv.findall();
+	}
+
 }

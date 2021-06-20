@@ -1,5 +1,6 @@
 package com.attendance.serviceImplementation;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,25 +47,26 @@ import com.attendance.repository.SubjectRepository;
 			assfaculty.setSubject(op.get());
 			
 				return	assignrepo.save(assfaculty);
-		 
-		 /*	long k= subject.getCourse().getCourseid();
-	int i=(int) k;
-	Optional<Course> op= courser.findById(i);
 	
-	if(op.isEmpty())//throws exception
-	 {
-		
-	}
-	else 
-	    subject.setCourse(op.get());  
-		return	SubjectRepo.save(subject);
-     */
-		 
-		 
-	
-     
 	   }
-	 
+	 public void delete(AssignFaculty entity) {
+		 assignrepo.delete(entity);
+	}
+	 public List<AssignFaculty> findall() {
+			return assignrepo.findAll();
+		}
+	 public boolean update(AssignFaculty entity) {
+			AssignFaculty entity1 = assignrepo.findById(entity.getId()).orElse(null);
+			//entity1.setCourseName(entity.getCourseName());
+			//entity1.setSemester(entity.getSemester());
+			entity1.setSubject(entity.getSubject());
+			//entity1.setSubjectName(entity.getSubjectName());
+			//entity1.setUserId(entity.getUserId());
+			entity1.setFaculty(entity.getFaculty());
+			entity1.setTotalclasses(entity.getTotalclasses());
+			assignrepo.save(entity1);
+			return true;
+		}
 	 
 	 
 }
