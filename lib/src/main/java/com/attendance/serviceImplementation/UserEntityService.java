@@ -80,26 +80,26 @@ public class UserEntityService {
 		
 	}
 	
-	public String ChangePassword(String email,String oldPassword, String newPassword) {
-		UserEntity user= userRepository.findByEmail(email);			
-		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(10);
-		String oldEncodedPassword = bCryptPasswordEncoder.encode(oldPassword);
-		String encodedNewPassword = bCryptPasswordEncoder.encode(newPassword);	
-		
-		String dbEncodedPassword = user.getPassword();
-		
-		if(oldEncodedPassword.equals(dbEncodedPassword)) {
-			
-			user.setPassword(encodedNewPassword);
-			user.setConfirmPassword(encodedNewPassword);
-			 userRepository.save(user);
-			 return "updated succesfully";		}
-		
-		else {
-			return "no password";
-		}
-		 
-		 }
+//	public String ChangePassword(String email,String oldPassword, String newPassword) {
+//		UserEntity user= userRepository.findByEmail(email);			
+//		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(10);
+//		String oldEncodedPassword = bCryptPasswordEncoder.encode(oldPassword);
+//		String encodedNewPassword = bCryptPasswordEncoder.encode(newPassword);	
+//		
+//		String dbEncodedPassword = user.getPassword();
+//		
+//		if(oldEncodedPassword.equals(dbEncodedPassword)) {
+//			
+//			user.setPassword(encodedNewPassword);
+//			user.setConfirmPassword(encodedNewPassword);
+//			 userRepository.save(user);
+//			 return "updated succesfully";		}
+//		
+//		else {
+//			return "no password";
+//		}
+//		 
+//		 }
 
 
 	public String logout() {

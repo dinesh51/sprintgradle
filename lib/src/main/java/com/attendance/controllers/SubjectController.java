@@ -1,5 +1,7 @@
 package com.attendance.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,4 +25,14 @@ public class SubjectController {
 				
 				return subjectservice.saveSubject(subject);
 			}
+	  
+
+	//  @PostMapping("/subjectlist/{coursename}")
+//			public List<Subject> get(@RequestBody Subject subject) {
+//				
+//				//return subjectservice.saveSubject(subject);
+		//	}
+	  
+	  
+	  
 }
